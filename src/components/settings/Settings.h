@@ -4,6 +4,9 @@
 #include "components/brightness/BrightnessController.h"
 #include "components/fs/FS.h"
 #include "displayapp/apps/Apps.h"
+//for auto wakeup mode
+#include "components/ble/BleController.h"
+#include "utility/DirtyValue.h"
 
 namespace Pinetime {
   namespace Controllers {
@@ -13,7 +16,7 @@ namespace Pinetime {
       enum class WeatherFormat : uint8_t { Metric, Imperial };
       enum class Notification : uint8_t { On, Off, Sleep };
       enum class ChimesOption : uint8_t { None, Hours, HalfHours };
-      enum class WakeUpMode : uint8_t { SingleTap = 0, DoubleTap = 1, RaiseWrist = 2, Shake = 3, LowerWrist = 4 };
+      enum class WakeUpMode : uint8_t { SingleTap = 0, DoubleTap = 1, RaiseWrist = 2, Shake = 3, LowerWrist = 4 , Auto = 5};
       enum class Colors : uint8_t {
         White,
         Silver,
@@ -37,6 +40,8 @@ namespace Pinetime {
       enum class PTSGaugeStyle : uint8_t { Full, Half, Numeric };
       enum class PTSWeather : uint8_t { On, Off };
 
+      Utility::DirtyValue<bool> bleState {};
+
       struct PineTimeStyle {
         Colors ColorTime = Colors::Teal;
         Colors ColorBar = Colors::Teal;
@@ -56,7 +61,7 @@ namespace Pinetime {
         int colorIndex = 0;
       };
       
-      Settings(Pinetime::Controllers::FS& fs);
+      Settings(Pinetime::Controllers::FS& fs, const Controllers::Ble& bleController);
 
       Settings(const Settings&) = delete;
       Settings& operator=(const Settings&) = delete;
@@ -250,6 +255,18 @@ namespace Pinetime {
         // Handle special behavior
         if (enabled) {
           switch (wakeUp) {
+            case WakeUpMode::Auto:
+            //if auto, disable all wakeup when bluetooth is off
+            bleState = bleController.IsConnected();
+            if(!bleState.Get()) { //if bluetooth disconnected
+              settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::SingleTap), false);
+              settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::DoubleTap), false);
+              settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::RaiseWrist), false);
+              settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::LowerWrist), false);
+              settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::Shake), false);
+              }
+            //else leave as is !!
+            break; //because only one option is changed at a time 
             case WakeUpMode::SingleTap:
               settings.wakeUpMode.set(static_cast<size_t>(WakeUpMode::DoubleTap), false);
               break;
@@ -262,7 +279,7 @@ namespace Pinetime {
         }
       };
 
-      std::bitset<5> getWakeUpModes() const {
+      std::bitset<6> getWakeUpModes() const {
         return settings.wakeUpMode;
       }
 
@@ -302,7 +319,7 @@ namespace Pinetime {
 
     private:
       Pinetime::Controllers::FS& fs;
-
+      const Controllers::Ble& bleController;  
       static constexpr uint32_t settingsVersion = 0x0007;
 
       struct SettingsData {
@@ -323,7 +340,7 @@ namespace Pinetime {
 	
         WatchFaceMeow watchFaceMeow;
 
-        std::bitset<5> wakeUpMode {0};
+        std::bitset<6> wakeUpMode {0};
         uint16_t shakeWakeThreshold = 150;
 
         Controllers::BrightnessController::Levels brightLevel = Controllers::BrightnessController::Levels::Medium;

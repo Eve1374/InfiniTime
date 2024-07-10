@@ -7,6 +7,7 @@
 #include "displayapp/screens/Symbols.h"
 #include "displayapp/screens/List.h"
 
+
 namespace Pinetime {
 
   namespace Applications {
@@ -25,7 +26,6 @@ namespace Pinetime {
         std::unique_ptr<Screen> CreateScreen(unsigned int screenNum) const;
 
         Controllers::Settings& settingsController;
-
         static constexpr int entriesPerScreen = 4;
 
         // Increment this when more space is needed

@@ -8,7 +8,7 @@
 
 using namespace Pinetime::Applications::Screens;
 
-constexpr std::array<SettingWakeUp::Option, 5> SettingWakeUp::options;
+constexpr std::array<SettingWakeUp::Option, 6> SettingWakeUp::options;
 
 namespace {
   void event_handler(lv_obj_t* obj, lv_event_t event) {
@@ -62,6 +62,7 @@ SettingWakeUp::~SettingWakeUp() {
 void SettingWakeUp::UpdateSelected(lv_obj_t* object) {
   // Find the index of the checkbox that triggered the event
   for (size_t i = 0; i < options.size(); i++) {
+  //cbOption is a lv object array that has the size of the number of options, declared in .h
     if (cbOption[i] == object) {
       bool currentState = settingsController.isWakeUpModeOn(options[i].wakeUpMode);
       settingsController.setWakeUpMode(options[i].wakeUpMode, !currentState);

@@ -4,7 +4,7 @@
 
 using namespace Pinetime::Controllers;
 
-Settings::Settings(Pinetime::Controllers::FS& fs) : fs {fs} {
+Settings::Settings(Pinetime::Controllers::FS& fs, const Controllers::Ble& bleController) : fs {fs}, bleController {bleController} {
 }
 
 void Settings::Init() {
