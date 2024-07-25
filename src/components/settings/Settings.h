@@ -118,6 +118,15 @@ namespace Pinetime {
         return settings.PTS.ColorBG;
       };
 
+      void SetCasioColor(Colors casioColor) {
+        if (casioColor != settings.casio.casioColor)
+          settingsChanged = true;
+        settings.casio.casioColor = casioColor;
+      };
+
+      Colors GetCasioColor() const {
+        return settings.casio.casioColor;
+      };
       void SetInfineatShowSideCover(bool show) {
         if (show != settings.watchFaceInfineat.showSideCover) {
           settings.watchFaceInfineat.showSideCover = show;
@@ -322,6 +331,8 @@ namespace Pinetime {
         WatchFaceInfineat watchFaceInfineat;
 	
         WatchFaceMeow watchFaceMeow;
+
+        WatchFaceCasioStyleG7710 casio;
 
         std::bitset<5> wakeUpMode {0};
         uint16_t shakeWakeThreshold = 150;

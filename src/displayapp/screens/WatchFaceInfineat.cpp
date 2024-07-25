@@ -436,7 +436,7 @@ void WatchFaceInfineat::UpdateSelected(lv_obj_t* object, lv_event_t event) {
     }
     if (object == btnNextColor || object == btnPrevColor) {
       const std::array<lv_color_t, nLines>* colors = returnColor(static_cast<enum colors>(settingsController.GetInfineatColorIndex()));
-      for (int i = 0; i < nLines; i++) {
+      for (int i = 0; i < nLines; i++) { //mettre à jour les lignes selon les couleurs choisies
         lv_color_t color = (*colors)[i];
         lv_obj_set_style_local_line_color(lines[i], LV_LINE_PART_MAIN, LV_STATE_DEFAULT, color);
       }
