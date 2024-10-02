@@ -20,6 +20,8 @@ Original repo : [InfiniTime](https://github.com/InfiniTimeOrg/InfiniTime)
 - [Getting started with InfiniTime](doc/gettingStarted/gettingStarted-1.0.md)
 - [Updating the software](doc/gettingStarted/updating-software.md)
 - [About the firmware and bootloader](doc/gettingStarted/about-software.md)
+- [Available apps](doc/gettingStarted/Applications.md)
+- [Available watch faces](/doc/gettingStarted/Watchfaces.md)
 - [PineTimeStyle Watch face](https://pine64.org/documentation/PineTime/Watchfaces/PineTimeStyle)
   - [Weather integration](https://pine64.org/documentation/PineTime/Software/InfiniTime_weather/)
 
@@ -35,6 +37,7 @@ Branches :
 - my-custom-infinitime : branch were I put things that I want for myself, like a watchface with paw instead of shoe icon for steps counter :
 
 ![Meow watchface](doc/ui/meow_alarmset.png "Meow watchface")
+<<<<<<< HEAD
 
 ## New to InfiniTime?
 
@@ -68,6 +71,11 @@ Branches :
 ### Contributing
 
 - [How to contribute?](CONTRIBUTING.md)
+=======
+### Contributing
+
+- [How to contribute](CONTRIBUTING.md)
+>>>>>>> main
 - [Coding conventions](doc/coding-convention.md)
 
 ### Build, flash and debug
