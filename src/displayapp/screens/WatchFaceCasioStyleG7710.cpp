@@ -331,7 +331,7 @@ void WatchFaceCasioStyleG7710::Refresh() {
     lv_obj_realign(stepValue);
     lv_obj_realign(stepIcon);
   }
-  alarmState = alarmController.State()==Pinetime::Controllers::AlarmController::AlarmState::Set;
+  alarmState = alarmController.IsEnabled();
   // sets the icon as bell or barred bell
   lv_label_set_text_static(alarmIcon, AlarmIcon::GetIcon(alarmState));
   //displays the time of the alarm or nothing if the alarm is not set

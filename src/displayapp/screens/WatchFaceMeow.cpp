@@ -629,7 +629,8 @@ void WatchFaceMeow::Refresh() {
   }*/
 
   if (settingsController.GetInfineatShowAlarmStatus()) {
-    alarmState = alarmController.State()==Pinetime::Controllers::AlarmController::AlarmState::Set;
+    //alarmState = alarmController.State()==Pinetime::Controllers::AlarmController::AlarmState::Set;
+    alarmState = alarmController.IsEnabled();
     // sets the icon as bird or bed
     const char* alarmSymbol = Symbols::zzz;
     if(alarmState) {

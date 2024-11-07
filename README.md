@@ -1,8 +1,44 @@
-# [InfiniTime](https://github.com/Eve1374/InfiniTime)
+<div align="center">
 
-![InfiniTime logo](doc/logo/infinitime-logo-small.jpg "InfiniTime Logo")
+![Header Image](doc/logo/watchface_collage.png)
 
-Fast open-source firmware for the [PineTime smartwatch](https://pine64.org/devices/pinetime/) with many features, written in modern C++.
+<br>
+
+[![GitHub tag](https://img.shields.io/github/tag/InfiniTimeOrg/InfiniTime?include_prereleases=&sort=semver&color=blue)](https://github.com/InfiniTimeOrg/InfiniTime/releases)
+[![GitHub License](https://img.shields.io/github/license/InfiniTimeOrg/InfiniTime)](https://github.com/InfiniTimeOrg/InfiniLink/blob/main/LICENSE)
+[![Issues - InfiniTime](https://img.shields.io/github/issues/InfiniTimeOrg/InfiniTime)](https://github.com/InfiniTimeOrg/InfiniTime/issues)
+[![Pull Requests - InfiniTime](https://img.shields.io/github/issues-pr/InfiniTimeOrg/InfiniTime)](https://github.com/InfiniTimeOrg/InfiniTime/pulls)
+[![Downloads - InfiniTime](https://img.shields.io/github/downloads/InfiniTimeOrg/InfiniTime/total)](https://github.com/InfiniTimeOrg/InfiniTime)
+[![Stars - InfiniTime](https://img.shields.io/github/stars/InfiniTimeOrg/InfiniTime?style=social)](https://github.com/InfiniTimeOrg/InfiniTime/stargazers)
+[![Forks - InfiniTime](https://img.shields.io/github/forks/InfiniTimeOrg/InfiniTime?style=social)](https://github.com/InfiniTimeOrg/InfiniTime/network/members)
+
+# InfiniTime
+
+*Fast open-source firmware for the [PineTime smartwatch](https://pine64.org/devices/pinetime/) with many features, written in modern C++.*
+
+<br>
+
+</div>
+
+## New to InfiniTime?
+
+- [Getting started with InfiniTime](doc/gettingStarted/gettingStarted-1.0.md)
+- [Updating the software](doc/gettingStarted/updating-software.md)
+- [About the firmware and bootloader](doc/gettingStarted/about-software.md)
+- [Available apps](doc/gettingStarted/Applications.md)
+- [Available watch faces](/doc/gettingStarted/Watchfaces.md)
+- [PineTimeStyle Watch face](https://pine64.org/documentation/PineTime/Watchfaces/PineTimeStyle)
+  - [Weather integration](https://pine64.org/documentation/PineTime/Software/InfiniTime_weather/)
+
+### Companion apps
+
+- [Gadgetbridge](https://gadgetbridge.org/) (Android)
+- [AmazFish](https://openrepos.net/content/piggz/amazfish/) (SailfishOS)
+- [Siglo](https://github.com/alexr4535/siglo) (Linux)
+- [InfiniLink](https://github.com/InfiniTimeOrg/InfiniLink) (iOS)
+- [ITD](https://gitea.elara.ws/Elara6331/itd) (Linux)
+- [WatchMate](https://github.com/azymohliad/watchmate) (Linux)
+- [InfiniTimeExplorer](https://infinitimeexplorer.netlify.app) (Web)
 
 ## Quick notes on this InfiniTime version
 
@@ -38,25 +74,11 @@ Branches :
 
 ![Meow watchface](doc/ui/meow_alarmset.png "Meow watchface")
 <<<<<<< HEAD
+<br>
 
-## New to InfiniTime?
-
-- [Getting started with InfiniTime](doc/gettingStarted/gettingStarted-1.0.md)
-- [Updating the software](doc/gettingStarted/updating-software.md)
-- [About the firmware and bootloader](doc/gettingStarted/about-software.md)
-- [PineTimeStyle Watch face](https://pine64.org/documentation/PineTime/Watchfaces/PineTimeStyle)
-  - [Weather integration](https://pine64.org/documentation/PineTime/Software/InfiniTime_weather/)
-
-### Companion apps
-
-- [Gadgetbridge](https://gadgetbridge.org/) (Android)
-- [AmazFish](https://openrepos.net/content/piggz/amazfish/) (SailfishOS)
-- [Siglo](https://github.com/alexr4535/siglo) (Linux)
-- [InfiniLink](https://github.com/InfiniTimeOrg/InfiniLink) (iOS)
-- [ITD](https://gitea.elara.ws/Elara6331/itd) (Linux)
-- [WatchMate](https://github.com/azymohliad/watchmate) (Linux)
-
-***Note**: We removed mentions to NRFConnect as this app is closed source and recent versions do not work anymore with InfiniTime (the last version known to work is 4.24.3). If you used NRFConnect in the past, we recommend you switch to [Gadgetbridge](https://gadgetbridge.org/).*
+> *InfiniTimeExplorer is only compatible with web browsers that support Web BLE. Current fully supported browsers include Chrome and Microsoft Edge.* 
+>
+> *We removed mentions to NRFConnect as this app is closed source and recent versions do not work anymore with InfiniTime (the last version known to work is 4.24.3). If you used NRFConnect in the past, we recommend you switch to [Gadgetbridge](https://gadgetbridge.org/).* 
 
 ## Development
 
@@ -70,12 +92,7 @@ Branches :
 
 ### Contributing
 
-- [How to contribute?](CONTRIBUTING.md)
-=======
-### Contributing
-
 - [How to contribute](CONTRIBUTING.md)
->>>>>>> main
 - [Coding conventions](doc/coding-convention.md)
 
 ### Build, flash and debug
