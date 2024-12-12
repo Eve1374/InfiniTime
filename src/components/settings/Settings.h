@@ -55,7 +55,7 @@ namespace Pinetime {
         bool showSideCover = true;
         int colorIndex = 0;
       };
-      
+
       Settings(Pinetime::Controllers::FS& fs);
 
       Settings(const Settings&) = delete;

@@ -148,7 +148,6 @@ WatchFaceInfineat::WatchFaceInfineat(Controllers::DateTime& dateTimeController,
     font_bebas = lv_font_load("F:/fonts/bebas.bin");
   }
 
-
   // Side Cover
   static constexpr lv_point_t linePoints[nLines][2] = {{{30, 25}, {68, -8}},
                                                        {{26, 167}, {43, 216}},
@@ -305,7 +304,7 @@ WatchFaceInfineat::WatchFaceInfineat(Controllers::DateTime& dateTimeController,
   btnToggleCover = lv_btn_create(lv_scr_act(), nullptr);
   btnToggleCover->user_data = this;
   lv_obj_set_size(btnToggleCover, 60, 60);
-  lv_obj_align(btnToggleCover, lv_scr_act(), LV_ALIGN_CENTER, 0,0);
+  lv_obj_align(btnToggleCover, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   lv_obj_set_style_local_bg_opa(btnToggleCover, LV_BTN_PART_MAIN, LV_STATE_DEFAULT, LV_OPA_70);
   const char* labelToggle = settingsController.GetInfineatShowSideCover() ? "ON" : "OFF";
   lblToggle = lv_label_create(btnToggleCover, nullptr);
@@ -509,7 +508,7 @@ void WatchFaceInfineat::Refresh() {
   }
 
   if (settingsController.GetInfineatShowAlarmStatus()) {
-    //alarmState = alarmController.State()==Pinetime::Controllers::AlarmController::AlarmState::Set;
+    //alarmState = alarmController.State() == Pinetime::Controllers::AlarmController::AlarmState::Set;
     alarmState = alarmController.IsEnabled();
     // sets the icon as bell or barred bell
     lv_label_set_text_static(alarmIcon, AlarmIcon::GetIcon(alarmState));
@@ -546,7 +545,6 @@ void WatchFaceInfineat::Refresh() {
       lv_obj_align(alarmIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_RIGHT, -3, 0);
     }
   }
-
 
   stepCount = motionController.NbSteps();
   if (stepCount.IsUpdated()) {
